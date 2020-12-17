@@ -19,6 +19,7 @@ def byteconvert(num):
 
 def op(opStr: str):
   b = byteconvert
+  color = "\033[1;32;40m"
   ops = {
     "&": lambda a, b: a & b,
     "|": lambda a, b: a | b,
@@ -28,7 +29,7 @@ def op(opStr: str):
   }
   op1, operator, op2 = re.findall(r"(\d+)\s+(\D+?)\s+(\d+)", opStr)[0]
   res = b(ops[operator](b(op1), b(op2)))
-  print(res)
+  print(f'{op1} {operator}\n{op2} = \n{color}{res}')
   return res
   
 op('10011100 & 00110100')
