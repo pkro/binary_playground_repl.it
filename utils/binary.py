@@ -33,5 +33,5 @@ def binary_op(opStr: str):
   }
   op1, operator, op2 = re.findall(r"(\d+)\s+(\D+?)\s+(\d+)", opStr)[0]
   res = bc(ops[operator](op1, op2))
-  # i want both print and single returned res, have to get rid of print side effect
+  
   return (res, op1, op2, operator)
