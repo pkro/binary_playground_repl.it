@@ -13,7 +13,6 @@ def byteconvert(num):
     if num - start >= 0:
       bits.append('1')
       num = num - start  
-      
     else:
       bits.append('0')
     start = start // 2
@@ -31,7 +30,7 @@ def binary_op(opStr: str):
     "<<": lambda a, b: a << b,
     ">>": lambda a, b: a >> b
   }
-  op1, operator, op2 = re.findall(r"(\d+)\s+(\D+?)\s+(\d+)", opStr)[0]
+  op1, operator, op2 = re.findall(r"(\d+)\s*(\D+?)\s*(\d+)", opStr)[0]
   res = bc(ops[operator](op1, op2))
   
   return (res, op1, op2, operator)
